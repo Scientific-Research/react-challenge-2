@@ -38,8 +38,12 @@ export const DateCounter = () => {
   // const dateWithoutComma: string = formattedDate.replace(/,/g, ""); // Remove the comma
   // console.log(dateWithoutComma);
 
-  const handlerDecrease = () => {
+  const handleIncrease = () => {
     setDay((d) => d + 1);
+  };
+
+  const handleDecrease = () => {
+    setDay((d) => d - 1);
   };
 
   return (
@@ -50,9 +54,9 @@ export const DateCounter = () => {
         <button>+</button>
       </div>
       <div>
-        <button>-</button>
+        <button onClick={handleDecrease}>-</button>
         Count:{day}
-        <button onClick={handlerDecrease}>+</button>
+        <button onClick={handleIncrease}>+</button>
       </div>
       <h1>
         {/* <span>{day}</span> Today is {} Jun {21 + day} 2027 */}
