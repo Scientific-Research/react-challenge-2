@@ -14,7 +14,7 @@ export const DateCounter = () => {
 
   function addDayToCurrentDate(days: number): Date {
     const currentDate = new Date();
-    return new Date(currentDate.setDate(currentDate.getDate() + days));
+    return new Date(currentDate.setDate(currentDate.getDate() + step * days));
   }
 
   // Example usage:
