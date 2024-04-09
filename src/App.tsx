@@ -59,9 +59,9 @@ export const DateCounter = () => {
         <button onClick={handleIncrease}>+</button>
       </div>
       <h1>
-        {/* <span>{day}</span> Today is {} Jun {21 + day} 2027 */}
-        {/* {day} Today is {currentDayOfWeek} {monthName} {dayOfMonth + day} {year} */}
-        {day} day(s) from Today is {nextDay.toDateString()}
+        {day === 0
+          ? " day(s) from Today is " + nextDay.toDateString()
+          : day + " day(s) from Today is " + nextDay.toDateString()}
       </h1>
     </>
   );
