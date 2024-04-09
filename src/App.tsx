@@ -8,27 +8,35 @@ export default function App() {
   );
 }
 
-let indexOfDays: number;
 export const DateCounter = () => {
   const [step, setStep] = useState(1);
   const [day, setDay] = useState(0);
 
+  function addDayToCurrentDate(days: number): Date {
+    const currentDate = new Date();
+    return new Date(currentDate.setDate(currentDate.getDate() + days));
+  }
+
+  // Example usage:
+  const nextDay = addDayToCurrentDate(day);
+  console.log(`Next day: ${nextDay.toDateString()}`);
+
   // const date = new Date().toLocaleDateString();
   // console.log(date);
 
-  const currentDate: Date = new Date();
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: "short",
-    month: "long",
-    day: "2-digit",
-    year: "numeric",
-  };
-  const formattedDate: string = currentDate.toLocaleDateString(
-    "en-US",
-    options
-  );
-  const dateWithoutComma: string = formattedDate.replace(/,/g, ""); // Remove the comma
-  console.log(dateWithoutComma);
+  // const currentDate: Date = new Date();
+  // const options: Intl.DateTimeFormatOptions = {
+  //   weekday: "short",
+  //   month: "long",
+  //   day: "2-digit",
+  //   year: "numeric",
+  // };
+  // const formattedDate: string = currentDate.toLocaleDateString(
+  //   "en-US",
+  //   options
+  // );
+  // const dateWithoutComma: string = formattedDate.replace(/,/g, ""); // Remove the comma
+  // console.log(dateWithoutComma);
 
   const handlerDecrease = () => {
     setDay((d) => d + 1);
@@ -49,8 +57,7 @@ export const DateCounter = () => {
       <h1>
         {/* <span>{day}</span> Today is {} Jun {21 + day} 2027 */}
         {/* {day} Today is {currentDayOfWeek} {monthName} {dayOfMonth + day} {year} */}
-        {/* {day} Today is {currentDayOfWeek} {monthName} {dayOfMonth + day} {year} */}
-        {day} Today is {dateWithoutComma}
+        {day} day(s) from Today is {nextDay.toDateString()}
       </h1>
     </>
   );
