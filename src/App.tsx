@@ -46,12 +46,20 @@ export const DateCounter = () => {
     setDay((d) => d - 1);
   };
 
+  const handleIncreaseStep = () => {
+    setStep((s) => s + 1);
+  };
+
+  const handleDecreaseStep = () => {
+    setStep((s) => s - 1);
+  };
+
   return (
     <>
       <div>
-        <button>-</button>
-        Step:1
-        <button>+</button>
+        <button onClick={handleDecreaseStep}>-</button>
+        Step:{step}
+        <button onClick={handleIncreaseStep}>+</button>
       </div>
       <div>
         <button onClick={handleDecrease}>-</button>
@@ -60,8 +68,12 @@ export const DateCounter = () => {
       </div>
       <h1>
         {day === 0 ? " day(s) from Today is " + nextDay.toDateString() : ""}
-        {day > 0 ? day + " day(s) from Today is " + nextDay.toDateString() : ""}
-        {day < 0 ? -day + " day(s) ago was " + nextDay.toDateString() : ""}
+        {day > 0
+          ? step * day + " day(s) from Today is " + nextDay.toDateString()
+          : ""}
+        {day < 0
+          ? step * -day + " day(s) ago was " + nextDay.toDateString()
+          : ""}
       </h1>
     </>
   );
