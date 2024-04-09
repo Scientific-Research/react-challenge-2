@@ -55,7 +55,8 @@ export const DateCounter = () => {
           ? step * day + " day(s) from Today is " + nextDay.toDateString()
           : ""}
         {day < 0
-          ? step * -day + " day(s) ago was " + nextDay.toDateString()
+          ? // ? step * -day + " day(s) ago was " + nextDay.toDateString()
+            step * Math.abs(day) + " day(s) ago was " + nextDay.toDateString()
           : ""}
       </h1>
     </>
