@@ -21,23 +21,6 @@ export const DateCounter = () => {
   const nextDay = addDayToCurrentDate(day);
   console.log(`Next day: ${nextDay.toDateString()}`);
 
-  // const date = new Date().toLocaleDateString();
-  // console.log(date);
-
-  // const currentDate: Date = new Date();
-  // const options: Intl.DateTimeFormatOptions = {
-  //   weekday: "short",
-  //   month: "long",
-  //   day: "2-digit",
-  //   year: "numeric",
-  // };
-  // const formattedDate: string = currentDate.toLocaleDateString(
-  //   "en-US",
-  //   options
-  // );
-  // const dateWithoutComma: string = formattedDate.replace(/,/g, ""); // Remove the comma
-  // console.log(dateWithoutComma);
-
   const handleIncrease = () => {
     setDay((d) => d + 1);
   };
